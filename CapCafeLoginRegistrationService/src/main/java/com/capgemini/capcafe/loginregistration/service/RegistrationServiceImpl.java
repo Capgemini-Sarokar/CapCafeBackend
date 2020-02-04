@@ -1,6 +1,9 @@
 package com.capgemini.capcafe.loginregistration.service;
 
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.capgemini.capcafe.loginregistration.entity.User;
@@ -30,6 +33,8 @@ public class RegistrationServiceImpl implements RegistrationService {
 			existingUser = this.registrationDao.findById(userId).get();
 		} catch (IllegalArgumentException error) {
 			throw new RegistrationException ("Invalid User ID Passed");
+		} catch (NoSuchElementException error) {
+			throw new RegistrationException ("The requested user does not exist");
 		}
 		return existingUser;
 	}
@@ -40,6 +45,8 @@ public class RegistrationServiceImpl implements RegistrationService {
 			this.registrationDao.deleteById(userId);
 		} catch (IllegalArgumentException error) {
 			throw new RegistrationException ("Invalid User ID Passed");
+		} catch (EmptyResultDataAccessException error) {
+			throw new RegistrationException ("The expected user does not exist");
 		}
 		return;
 	}
