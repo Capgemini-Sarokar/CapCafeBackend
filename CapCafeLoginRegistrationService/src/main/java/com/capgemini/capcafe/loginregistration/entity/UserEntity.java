@@ -46,8 +46,7 @@ public class UserEntity {
 	private String phoneNumber;
 	
 	@JsonProperty("dateOfBirth")
-	@Column(name = "User_DOB")
-	@NotEmpty(message = "User date of birth cannot be empty")
+	@Column(name = "User_DOB", nullable = false)
 	private Calendar dateOfBirth;
 	
 	@JsonProperty("userRole")

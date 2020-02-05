@@ -1,4 +1,5 @@
 package com.capgemini.capcafe.cafedetails.service;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class CafeServiceImpl implements CafeService {
 	public Cafe fetchCafeById(String cafeID) throws CafeException {
 		try {
 			return cafePersistence.findById(cafeID).get();
-		} catch (Exception e) {
+		} catch (Exception error) {
 			throw new CafeException("No cafe details are available for cafeId: ");
 		}
 	}
@@ -42,7 +43,7 @@ public class CafeServiceImpl implements CafeService {
 		try {
 			cafePersistence.deleteById(cafeID);
 			return true;
-		} catch (Exception e) {
+		} catch (Exception error) {
 			throw new CafeException("Invalid Cafe Id provided: ");
 		}
 	}

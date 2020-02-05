@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.capgemini.capcafe.loginregistration.entity.UserEntity;
 import com.capgemini.capcafe.loginregistration.exception.UserException;
 import com.capgemini.capcafe.loginregistration.persistence.UserPersistence;
 
+@Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired
