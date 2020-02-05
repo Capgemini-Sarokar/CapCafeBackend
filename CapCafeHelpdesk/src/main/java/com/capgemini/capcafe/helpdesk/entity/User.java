@@ -14,18 +14,28 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-public class User {
+@Table(name = "orders")
+public class Orders{
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter
-	@Setter
-	@JsonProperty("orderID")
-    public String orderID;
+	private int orderId;
 	
-	@Getter
-	@Setter
-	@JsonProperty("comment")
-	public String comment;
+	public Orders(int orderId) {
+		super();
+		this.orderId = orderId;
+		
+	}
+
+
+
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
 }
+
+	
 	

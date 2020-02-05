@@ -4,8 +4,14 @@ import java.util.List;
 import com.capgemini.capcafe.helpdesk.exception.HelpdeskException;
 
 public interface HelpdeskService {
+List<Orders> getAllOrders();
+	
+	Orders addNewOrder(Orders order);
+	
+	Orders getById(int orderId);
+
+
+}
 
 	
-	Order fetchOrderId(String OrderID) throws HelpdeskException;
-List<Order> fetchOrderDetails();
-}
+	

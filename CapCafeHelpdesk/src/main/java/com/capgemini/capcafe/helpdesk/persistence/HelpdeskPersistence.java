@@ -1,9 +1,7 @@
 package com.capgemini.capcafe.helpdesk.persistence;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.capgemini.capcafe.helpdesk.entity.Cafe;
-
-public interface HelpdeskPersistence extends CrudRepository<Order, String> {
-
+public interface HelpdeskPersistence extends JpaRepository<User,Integer> {
+	
 }

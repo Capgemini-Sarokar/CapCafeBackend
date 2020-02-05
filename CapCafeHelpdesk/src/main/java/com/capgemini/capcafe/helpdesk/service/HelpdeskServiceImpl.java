@@ -3,24 +3,31 @@ package com.capgemini.capcafe.helpdesk.service;
 import java.util.List;
 
 @Service
-@Transactional(rollbackFor = HelpdeskException.class)
+@Transactional
 public class HelpdeskServiceImpl implements HelpdeskService {
-	
+
 	@Autowired
-	private HelpdeskPersistence helpdeskPersistence;
-
-	
-
+	private HelpdeskPersistence repo;
 	@Override
-	public Order fetchOrderId(String OrderID) throws HelpdeskException {
-		try {
-			return helpdeskPersistence.findByOrderId(OrderID).get();
-		} catch (Exception e) {
-			throw new HelpdeskException("No details are available for OrderId: ");
-		}
+	public List<Orders> getAllOrders() {
+		
+		return repo.findAll();
+	}
+	
+	@Override
+	public Orders addNewOrder(Orders order) {
+		
+		return repo.save(order);
 	}
 
+	@Override
+	public Orders getById(int orderId) {
+		
+		return repo.findById(orderId).get();
+	}
+}
+
 
 	
-}
+
 
