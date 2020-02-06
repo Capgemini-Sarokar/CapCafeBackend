@@ -7,21 +7,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 
 public class MenuOrder {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "FoodID")
+	@JsonProperty("FoodID")
 	private String foodId;
 	
-	@Column(name = "CafeID")
+	@JsonProperty("CafeID")
 	private String cafeId;
 	
-	@Column(name = "Food_Name")
+	@JsonProperty("Food_Name")
 	private String foodName;
 	
-	@Column(name = "Food_Price")
+	@JsonProperty("Food_Price")
 	private int foodPrice;
 
 	public String getFoodId() {
