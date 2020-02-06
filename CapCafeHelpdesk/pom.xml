@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.capgemini</groupId>
-	<artifactId>CapCafeLoginRegistrationService</artifactId>
+	<artifactId>CapCafeHelpdeskService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>CapCafeLoginRegistrationService</name>
+	<name>CapCafeHelpdeskService</name>
 	<description>Eureka server for CapCafe microservice registrations
 	</description>
 
