@@ -1,28 +1,25 @@
 package com.capgemini.capcafe.menuorder.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-
+@Table
 public class MenuOrder {
 	@Id
-	@JsonProperty("FoodID")
+	@JsonProperty("foodId")
 	private String foodId;
 	
-	@JsonProperty("CafeID")
+	@JsonProperty("cafeId")
 	private String cafeId;
 	
-	@JsonProperty("Food_Name")
+	@JsonProperty("foodName")
 	private String foodName;
 	
-	@JsonProperty("Food_Price")
+	@JsonProperty("foodPrice")
 	private int foodPrice;
 
 	public String getFoodId() {
