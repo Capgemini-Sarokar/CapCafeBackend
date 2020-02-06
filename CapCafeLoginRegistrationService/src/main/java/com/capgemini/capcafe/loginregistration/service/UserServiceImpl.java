@@ -24,10 +24,10 @@ public class UserServiceImpl implements UserService {
 		String password = user.getPassword();
 		String encodedPassword = passwordEncoder.encode(password);
 		user.setPassword(encodedPassword);
-		UserEntity emp = this.userDao.save(user);
-		if(emp == null)
+		UserEntity registeredUser = this.userDao.save(user);
+		if(registeredUser == null)
 			throw new UserException("Unable to save. Something went wrong. Please try again");
-		return emp;
+		return registeredUser;
 	}
 
 	@Override

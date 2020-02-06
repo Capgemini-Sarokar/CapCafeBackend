@@ -115,4 +115,15 @@ public class UserEntity {
 		
 	}
 
+	public UserEntity(String employeeId, String emailId, String password, String name, 
+			String phoneNumber, Calendar dateOfBirth, String userRole) {
+		this.employeeId = employeeId;
+		this.emailId = emailId;
+		this.password = password;
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+		this.dateOfBirth = dateOfBirth;
+		this.userRole = userRole;
+	}
+
 }

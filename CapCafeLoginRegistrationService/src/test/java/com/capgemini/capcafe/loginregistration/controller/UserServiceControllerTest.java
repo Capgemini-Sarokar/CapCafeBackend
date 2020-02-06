@@ -1,13 +1,25 @@
 package com.capgemini.capcafe.loginregistration.controller;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.Calendar;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.RequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import com.capgemini.capcafe.loginregistration.entity.UserEntity;
 import com.capgemini.capcafe.loginregistration.service.UserService;
 
 @RunWith(SpringRunner.class)
@@ -21,8 +33,34 @@ public class UserServiceControllerTest {
 	private UserService userService;
 	
 	@Test
-	public void adEmployeeTest () throws Exception {
+	public void addEmployeeTest () throws Exception {
+		String exampleUserDetailsJson = "{" + 
+				"	\"employeeId\":\"46001980\"," + 
+				"	\"emailId\":\"rishav.dev@capgemini.com\"," + 
+				"	\"password\":\"password\"," + 
+				"	\"name\":\"Rishav Dev\"," + 
+				"	\"phoneNumber\":\"9211420420\"," + 
+				"	\"dateOfBirth\":\"1996-06-12\"," + 
+				"	\"userRole\":\"SPOC\"" + 
+				"}";
 		
+		Calendar dob = Calendar.getInstance();
+		dob.set(1997, 1, 1);
+		UserEntity mockUser = new UserEntity ("46001645", "kunal.roychoudhury@capgemini.com",
+				"password", "Kunal Roychoudhury", "6234567891", dob, "Admin");
+		
+		Mockito.when(userService.signUp(Mockito.any(UserEntity.class))).thenReturn(mockUser);
+		
+		RequestBuilder requestBuilder = MockMvcRequestBuilders
+				.post("/capcafe/add")
+				.accept(MediaType.APPLICATION_JSON).content(exampleUserDetailsJson)
+				.contentType(MediaType.APPLICATION_JSON);
+		
+		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+		
+		MockHttpServletResponse response = result.getResponse();
+		
+		assertEquals(HttpStatus.OK.value(), response.getStatus());				
 	}
 }
 
