@@ -13,11 +13,11 @@ import com.capgemini.capcafe.menuorder.model.MenuOrder;
 public interface MenuOrderService {
 
 
-	public MenuOrder addFoodItem(MenuOrder menus) ;
-	public List<MenuOrder> fetchAllMenu();
-	public MenuOrder fetchMenuById(String cafeID) throws MenuOrderException;
-	public boolean removeMenu(String foodID) throws MenuOrderException ;
-	public MenuOrder updateCafe(MenuOrder menu);
+	public MenuOrder addFoodItem(MenuOrder menus) throws MenuOrderException ;
+//	public List<MenuOrder> fetchAllMenu();
+//	public MenuOrder fetchMenuById(String cafeID) throws MenuOrderException;
+//	public boolean removeMenu(String foodID) throws MenuOrderException ;
+//	public MenuOrder updateCafe(MenuOrder menu);
 	
 
 }

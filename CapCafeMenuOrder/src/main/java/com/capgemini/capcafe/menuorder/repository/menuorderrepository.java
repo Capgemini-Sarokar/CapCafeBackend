@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.capgemini.capcafe.menuorder.model.MenuOrder;
 
-public interface menuorderrepository extends CrudRepository<MenuOrder, String> {
+public interface menuorderrepository extends JpaRepository<MenuOrder, String> {
 
 }

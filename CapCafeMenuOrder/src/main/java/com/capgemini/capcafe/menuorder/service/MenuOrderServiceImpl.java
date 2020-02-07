@@ -1,16 +1,18 @@
 package com.capgemini.capcafe.menuorder.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
+import com.capgemini.capcafe.menuorder.dao.MenuOrderDAO;
 import com.capgemini.capcafe.menuorder.exception.MenuOrderException;
 import com.capgemini.capcafe.menuorder.model.MenuOrder;
 import com.capgemini.capcafe.menuorder.repository.menuorderrepository;
+
 
 @Service
 @Transactional(rollbackFor = MenuOrderException.class)
@@ -18,37 +20,54 @@ public class MenuOrderServiceImpl implements MenuOrderService {
 
 	@Autowired
 	menuorderrepository menurepository;
-	@Override
-	public MenuOrder addFoodItem(MenuOrder menus)  {
-		return menurepository.save(menus);
-	}
-	@Override
-	public List<MenuOrder> fetchAllMenu() {
-		return (List<MenuOrder>) menurepository.findAll();
-	}
-	@Override
-	public MenuOrder fetchMenuById(String foodID) throws MenuOrderException {
-		try {
-			return menurepository.findById(foodID).get();
-		} catch (Exception error) {
-			throw new MenuOrderException("No cafe details are available for cafeId: ");
-		}
-	}
 	
+	@Autowired
+	MenuOrderDAO menuDAO;
+
 	@Override
-	public boolean removeMenu(String foodID) throws MenuOrderException {
+	public MenuOrder addFoodItem(MenuOrder menus) throws MenuOrderException  {
+		
 		try {
-			menurepository.deleteById(foodID);
-			return true;
-		} catch (Exception error) {
-			throw new MenuOrderException("Invalid Cafe Id provided: ");
+			
+				return menuDAO.addMenu(menus);
+			
+		} catch (Exception e) {
+		
+			System.out.println(e.getMessage());
+			throw new MenuOrderException(e.getMessage());
+
 		}
-	}
 	
-	@Override
-	public MenuOrder updateCafe(MenuOrder menu) {
-		return menurepository.save(menu);
+
 	}
+	}
+//	@Override
+//	public List<MenuOrder> fetchAllMenu() {
+//		return (List<MenuOrder>) menurepository.findAll();
+//	}
+//	@Override
+//	public MenuOrder fetchMenuById(String foodID) throws MenuOrderException {
+//		try {
+//			return menurepository.findById(foodID).get();
+//		} catch (Exception error) {
+//			throw new MenuOrderException("No cafe details are available for cafeId: ");
+//		}
+//	}
+//	
+//	@Override
+//	public boolean removeMenu(String foodID) throws MenuOrderException {
+//		try {
+//			menurepository.deleteById(foodID);
+//			return true;
+//		} catch (Exception error) {
+//			throw new MenuOrderException("Invalid Cafe Id provided: ");
+//		}
+//	}
+//	
+//	@Override
+//	public MenuOrder updateCafe(MenuOrder menu) {
+//		return menurepository.save(menu);
+//	}
 	
 //	@Override
 //	public Cafe fetchCafeById(String cafeID) throws CafeException {
@@ -83,7 +102,7 @@ public class MenuOrderServiceImpl implements MenuOrderService {
 
 
 
-}
+
 
 //@Override
 //@Override
