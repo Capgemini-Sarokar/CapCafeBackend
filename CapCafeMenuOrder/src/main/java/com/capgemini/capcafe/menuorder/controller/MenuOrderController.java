@@ -22,7 +22,7 @@ import com.capgemini.capcafe.menuorder.service.MenuOrderService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/menuorder")
+@RequestMapping(path ="/user-portal/menu")
 public class MenuOrderController {
 
 @Autowired
