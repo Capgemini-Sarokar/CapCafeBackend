@@ -3,21 +3,23 @@ package com.capgemini.capcafe.menuorder.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-
-
 import com.capgemini.capcafe.menuorder.exception.MenuOrderException;
 import com.capgemini.capcafe.menuorder.model.MenuOrder;
 
-
+@Service
 
 public interface MenuOrderService {
 
+    MenuOrder addFoodItem(MenuOrder menu);
+	
+	MenuOrder fetchFoodById(String foodID) throws MenuOrderException;
+	
+	List<MenuOrder> fetchMenu();
+	
+	boolean removeFoodItem(String foodID) throws MenuOrderException;
+	
+	MenuOrder updateMenu(MenuOrder menu);
 
-	public MenuOrder addFoodItem(MenuOrder menus) throws MenuOrderException ;
-//	public List<MenuOrder> fetchAllMenu();
-//	public MenuOrder fetchMenuById(String cafeID) throws MenuOrderException;
-//	public boolean removeMenu(String foodID) throws MenuOrderException ;
-//	public MenuOrder updateCafe(MenuOrder menu);
 	
 
 }

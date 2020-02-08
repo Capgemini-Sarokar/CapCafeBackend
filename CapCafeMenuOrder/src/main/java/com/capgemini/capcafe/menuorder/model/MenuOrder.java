@@ -10,20 +10,20 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table(name = "menu")
+@Table
 public class MenuOrder {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "foodId")
+	@JsonProperty("foodId")
 	private String foodId;
 	
-	@Column(name = "cafeId")
+	@JsonProperty("cafeId")
 	private String cafeId;
 	
-	@Column(name = "foodName")
+	@JsonProperty("foodName")
 	private String foodName;
 	
-	@Column(name = "foodPrice")
+	@JsonProperty("foodPrice")
 	private int foodPrice;
 
 	public String getFoodId() {
