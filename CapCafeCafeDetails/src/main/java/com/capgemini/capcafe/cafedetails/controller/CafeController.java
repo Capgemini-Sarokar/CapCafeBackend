@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,36 +16,36 @@ import com.capgemini.capcafe.cafedetails.entity.Cafe;
 import com.capgemini.capcafe.cafedetails.exception.CafeException;
 import com.capgemini.capcafe.cafedetails.service.CafeService;
 
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping(path = "/cafeManagement")
+@RequestMapping(path = "/cafe-portal/cafemanagement")
 public class CafeController {
 
 	@Autowired
 	private CafeService cafeService;
 
-	@PostMapping(path = "/newCafe")
+	@PostMapping
 	public void addNewCafe(@RequestBody Cafe newCafe) {
 		this.cafeService.addCafe(newCafe);
 	}
 
-	@PostMapping(path = "/getCafeById")
-	public Cafe getCafeById(@RequestBody String cafeID) throws CafeException {
-		return this.cafeService.fetchCafeById(cafeID);
+	@GetMapping(path = {"/{id}"})
+	public Cafe getCafeById(@PathVariable("id") String id) throws CafeException {
+		return this.cafeService.fetchCafeById(id);
 	}
 
-	@PostMapping(path = "/removeCafeById")
-	public boolean removeCafe(@RequestBody String cafeID) throws CafeException {
-		return this.cafeService.removeCafe(cafeID);
+	@PostMapping(path ={"/{id}"})
+	public boolean removeCafe(@PathVariable("id") String id) throws CafeException {
+		return this.cafeService.removeCafe(id);
 	
 	}
 
-	@GetMapping(path = "/getAllCafe")
+	@GetMapping
 	public List<Cafe> getAllCafe() {
 		return this.cafeService.fetchAllCafe();
 	}
 	
-	@PostMapping(path = "/updateCafe")
+	@PutMapping
 	public Cafe updateCafe (@RequestBody Cafe cafe) {
 		return this.cafeService.updateCafe(cafe);
 	}
