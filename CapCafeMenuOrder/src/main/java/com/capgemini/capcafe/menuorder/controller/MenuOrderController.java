@@ -55,4 +55,9 @@ public class MenuOrderController {
 	public List<MenuOrder> getCafeMenuById (@PathVariable("id") String id) throws MenuOrderException {
 		return null;
 	}
+	
+	@GetMapping(path = { "/{cafeId}" })
+	public List<MenuOrder> getFoodsByCafe(@PathVariable("cafeId") String cafeId) throws MenuOrderException {
+		return this.menuOrderService.getAllFoodsByCafeId(cafeId);
+	}
 }
