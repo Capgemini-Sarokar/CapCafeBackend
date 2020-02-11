@@ -1,5 +1,6 @@
 package com.capgemini.capcafe.menuorder.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,8 +56,14 @@ public class MenuOrderServiceImpl implements MenuOrderService {
 
 	@Override
 	public List<MenuOrder> getAllFoodsByCafeId(String cafeId) throws MenuOrderException {
-		// TODO Auto-generated method stub
-		return null;
+		List<MenuOrder> temp = this.menurepository.findAll();
+		List<MenuOrder> result = new ArrayList<MenuOrder>();
+		for (MenuOrder item : temp) {
+			if (item.getCafeId().equals(cafeId)) {
+				result.add(item);
+			}
+		}
+		return result;
 	}
 
 	
