@@ -51,4 +51,8 @@ public class MenuOrderController {
 		return this.menuOrderService.updateMenu(menu);
 	}
 
+	@GetMapping(path = "/{id}")
+	public List<MenuOrder> getCafeMenuById (@PathVariable("id") String id) throws MenuOrderException {
+		return null;
+	}
 }

@@ -53,5 +53,11 @@ public class MenuOrderServiceImpl implements MenuOrderService {
 		return menurepository.save(menu);
 	}
 
+	@Override
+	public List<MenuOrder> getAllFoodsByCafeId(String cafeId) throws MenuOrderException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

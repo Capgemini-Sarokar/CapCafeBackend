@@ -20,7 +20,7 @@ public interface MenuOrderService {
 	
 	MenuOrder updateMenu(MenuOrder menu);
 
-	
+	List<MenuOrder> getAllFoodsByCafeId (String cafeId) throws MenuOrderException;
 
 }
 
