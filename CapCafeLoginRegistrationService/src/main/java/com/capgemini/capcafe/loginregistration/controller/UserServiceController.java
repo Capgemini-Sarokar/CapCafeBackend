@@ -34,7 +34,7 @@ public class UserServiceController {
 		return this.userService.getById(id);
 	}
 
-	@PutMapping(value = "/update")
+	@PostMapping(value = "/update")
 	public UserEntity update(@RequestBody UserEntity user) {
 		return this.userService.update(user);
 	}

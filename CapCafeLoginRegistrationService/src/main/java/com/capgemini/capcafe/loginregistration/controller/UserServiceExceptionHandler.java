@@ -19,9 +19,9 @@ public class UserServiceExceptionHandler extends ResponseEntityExceptionHandler 
 
 	@ExceptionHandler(UserException.class)
 	@ResponseBody
-	public ResponseEntity<Object> HandleProductNotFound(UserException error) {
+	public ResponseEntity<Object> HandleProductNotFound(Exception error) {
 		System.out.println("Exception: " + error.getMessage());
-		return new ResponseEntity<>(error.getMessage(), HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(error.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 }

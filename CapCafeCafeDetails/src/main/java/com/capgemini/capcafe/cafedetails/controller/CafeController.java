@@ -18,34 +18,34 @@ import com.capgemini.capcafe.cafedetails.service.CafeService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping(path = "/cafe-portal/cafemanagement")
+@RequestMapping(path = "/cafe-portal")
 public class CafeController {
 
 	@Autowired
 	private CafeService cafeService;
 
-	@PostMapping
+	@PostMapping(path = "/addCafe")
 	public void addNewCafe(@RequestBody Cafe newCafe) {
 		this.cafeService.addCafe(newCafe);
 	}
 
-	@GetMapping(path = {"/{id}"})
+	@GetMapping(path = "/{id}")
 	public Cafe getCafeById(@PathVariable("id") String id) throws CafeException {
 		return this.cafeService.fetchCafeById(id);
 	}
 
-	@PostMapping(path ={"/{id}"})
+	@GetMapping(path = "/remove/{id}" )
 	public boolean removeCafe(@PathVariable("id") String id) throws CafeException {
 		return this.cafeService.removeCafe(id);
 	
 	}
 
-	@GetMapping
+	@GetMapping(path = "/viewAllCafes")
 	public List<Cafe> getAllCafe() {
 		return this.cafeService.fetchAllCafe();
 	}
 	
-	@PutMapping
+	@PutMapping(path = "/updateCafe")
 	public Cafe updateCafe (@RequestBody Cafe cafe) {
 		return this.cafeService.updateCafe(cafe);
 	}

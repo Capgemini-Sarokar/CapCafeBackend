@@ -43,7 +43,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserEntity update(UserEntity employee) {
-		return this.userDao.save(employee); 
+		
+//		UserEntity existingUser = this.userDao.findById(employee.getEmployeeId()).get();
+//		existingUser.setName(employee.getName());
+//		existingUser.setEmailId(employee.getEmailId());
+//		existingUser.setPhoneNumber(employee.getPhoneNumber());
+		System.out.println(employee);
+		return this.userDao.saveAndFlush(employee);
+		//return this.userDao.save(employee); 
 	}
 
 	@Override

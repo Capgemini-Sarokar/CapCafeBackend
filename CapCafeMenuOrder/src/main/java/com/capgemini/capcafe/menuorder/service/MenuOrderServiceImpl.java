@@ -1,15 +1,14 @@
 package com.capgemini.capcafe.menuorder.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.capgemini.capcafe.menuorder.exception.MenuOrderException;
 import com.capgemini.capcafe.menuorder.model.MenuOrder;
-import com.capgemini.capcafe.menuorder.repository.menuorderrepository;
+import com.capgemini.capcafe.menuorder.repository.MenuOrderRepository;
 
 
 @Service
@@ -18,7 +17,7 @@ import com.capgemini.capcafe.menuorder.repository.menuorderrepository;
 public class MenuOrderServiceImpl implements MenuOrderService {
 
 	@Autowired
-	menuorderrepository menurepository;
+	MenuOrderRepository menurepository;
 
 	@Override
 	public MenuOrder addFoodItem(MenuOrder menu) {
