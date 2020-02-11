@@ -35,7 +35,7 @@ public class MenuOrderController {
 		return this.menuOrderService.fetchFoodById(id);
 	}
 
-	@DeleteMapping(path = { "/{id}" })
+	@DeleteMapping(path = { "/remove/{id}" })
 	public boolean removeMenu(@PathVariable("id") String id) throws MenuOrderException {
 		return this.menuOrderService.removeFoodItem(id);
 
@@ -51,12 +51,8 @@ public class MenuOrderController {
 		return this.menuOrderService.updateMenu(menu);
 	}
 
-	@GetMapping(path = "/{id}")
-	public List<MenuOrder> getCafeMenuById (@PathVariable("id") String id) throws MenuOrderException {
-		return null;
-	}
 	
-	@GetMapping(path = { "/{cafeId}" })
+	@GetMapping(path = { "/getFoodByCafeId/{cafeId}" })
 	public List<MenuOrder> getFoodsByCafe(@PathVariable("cafeId") String cafeId) throws MenuOrderException {
 		return this.menuOrderService.getAllFoodsByCafeId(cafeId);
 	}
