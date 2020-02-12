@@ -43,12 +43,20 @@ public class MenuOrderServiceImpl implements MenuOrderService {
 	}
 
 	@Override
-	public boolean removeFoodItem(String foodID) throws MenuOrderException {
-		try {
-			menurepository.deleteById(foodID);
-			return true;
-		} catch (Exception error) {
-			throw new MenuOrderException(error.getMessage());
+	public boolean removeFoodItem(String cafeId, String foodId) throws MenuOrderException {
+		boolean itemDeleted = false;
+		List<MenuOrder> temp = this.menurepository.findAll();
+		for (MenuOrder item : temp) {
+			if (item.getCafeId().equals(cafeId) && item.getFoodId().equals(foodId)) {
+				this.menurepository.delete(item);
+				itemDeleted = true;
+				break;
+			}
+		}
+		if (itemDeleted) {
+			return itemDeleted;
+		} else {
+			throw new MenuOrderException ("Could Not delete Item");
 		}
 	}
 

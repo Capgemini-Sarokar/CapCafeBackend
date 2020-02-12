@@ -16,7 +16,7 @@ public interface MenuOrderService {
 	
 	List<MenuOrder> fetchMenu();
 	
-	boolean removeFoodItem(String foodID) throws MenuOrderException;
+	boolean removeFoodItem(String cafeId, String foodID) throws MenuOrderException;
 	
 	MenuOrder updateMenu(MenuOrder menu);
 
