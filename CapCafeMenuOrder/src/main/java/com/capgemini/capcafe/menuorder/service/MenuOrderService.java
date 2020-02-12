@@ -12,7 +12,7 @@ public interface MenuOrderService {
 
     MenuOrder addFoodItem(MenuOrder menu);
 	
-	MenuOrder fetchFoodById(String foodID) throws MenuOrderException;
+    List<MenuOrder> fetchFoodById(String foodID) throws MenuOrderException;
 	
 	List<MenuOrder> fetchMenu();
 	

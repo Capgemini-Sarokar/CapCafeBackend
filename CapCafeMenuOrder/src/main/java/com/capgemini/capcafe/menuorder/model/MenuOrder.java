@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table
+@Table(name="menu")
 public class MenuOrder {
 
 	@Id

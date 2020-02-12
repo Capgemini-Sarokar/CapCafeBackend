@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,11 +31,11 @@ public class MenuOrderController {
 	}
 
 	@GetMapping(path="/getFoodById/{id}")
-	public MenuOrder getFoodById(@PathVariable("id") String id) throws MenuOrderException {
-		return this.menuOrderService.fetchFoodById(id);
+	public List<MenuOrder> getFoodById(@PathVariable("id") String id) throws MenuOrderException {
+		return (List<MenuOrder>) this.menuOrderService.fetchFoodById(id);
 	}
 
-	@GetMapping(path = { "/removeFoodById/{id}" })
+	@DeleteMapping(path = { "/removeFoodById/{id}" })
 	public boolean removeFoodById (@PathVariable("id") String id) throws MenuOrderException {
 		return this.menuOrderService.removeFoodItem(id);
 	}

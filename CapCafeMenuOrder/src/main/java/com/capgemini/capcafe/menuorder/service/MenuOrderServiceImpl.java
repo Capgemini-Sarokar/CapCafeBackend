@@ -26,12 +26,15 @@ public class MenuOrderServiceImpl implements MenuOrderService {
 	}
 
 	@Override
-	public MenuOrder fetchFoodById(String foodID) throws MenuOrderException {
-		try {
-			return menurepository.findById(foodID).get();
-		} catch (Exception error) {
-			throw new MenuOrderException(error.getMessage());
+	public List<MenuOrder> fetchFoodById(String foodID) throws MenuOrderException {
+		List<MenuOrder> temp = this.menurepository.findAll();
+		List<MenuOrder> result = new ArrayList<MenuOrder>();
+		for (MenuOrder item : temp) {
+			if (item.getFoodId().equals(foodID)) {
+				result.add(item);
+			}
 		}
+		return result;
 	}
 
 	@Override
