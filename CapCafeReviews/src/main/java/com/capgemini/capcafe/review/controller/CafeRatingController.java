@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.capgemini.capcafe.review.entity.CafeRatingEntity;
 import com.capgemini.capcafe.review.exception.ReviewException;
-import com.capgemini.capcafe.service.RatingService;
+import com.capgemini.capcafe.review.service.RatingService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController

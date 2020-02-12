@@ -1,4 +1,4 @@
-package com.capgemini.capcafe.service;
+package com.capgemini.capcafe.review.service;
 
 import java.util.ArrayList;
 import java.util.List;

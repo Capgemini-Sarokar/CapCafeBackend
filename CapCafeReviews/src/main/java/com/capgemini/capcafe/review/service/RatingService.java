@@ -1,4 +1,4 @@
-package com.capgemini.capcafe.service;
+package com.capgemini.capcafe.review.service;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.capgemini.capcafe.review.entity.CafeRatingEntity;
 import com.capgemini.capcafe.review.exception.ReviewException;
 
-
+@Service
 
 public interface RatingService {
 

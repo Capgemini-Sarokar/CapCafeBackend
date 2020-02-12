@@ -1,4 +1,4 @@
-package com.capgemini.capcafe.service;
+package com.capgemini.capcafe.review.service;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import com.capgemini.capcafe.review.entity.FoodRatingEntity;
 import com.capgemini.capcafe.review.exception.ReviewException;
 
 
-
+@Service
 public interface FoodRatingService {
 
 	
