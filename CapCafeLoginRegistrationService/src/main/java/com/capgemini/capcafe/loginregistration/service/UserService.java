@@ -11,13 +11,13 @@ public interface UserService {
 
 	UserEntity getById (String id) throws UserException;
 
-	UserEntity update (UserEntity employee);
+	UserEntity update (UserEntity employee) throws UserException;
 
 	boolean newPassword (String id, String prevpass, String newpass) throws UserException, UserException;
 
 	boolean deleteById (String id) throws UserException;
 
-	UserEntity login (String id, String password) throws UserException, UserException;
+	UserEntity login (String id, String password) throws UserException;
 
 	List<UserEntity> getAll () throws UserException;
 

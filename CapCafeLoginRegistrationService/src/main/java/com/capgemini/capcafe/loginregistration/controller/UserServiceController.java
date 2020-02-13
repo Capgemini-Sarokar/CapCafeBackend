@@ -35,7 +35,7 @@ public class UserServiceController {
 	}
 
 	@PostMapping(value = "/update")
-	public UserEntity update(@RequestBody UserEntity user) {
+	public UserEntity update(@RequestBody UserEntity user) throws UserException {
 		return this.userService.update(user);
 	}
 

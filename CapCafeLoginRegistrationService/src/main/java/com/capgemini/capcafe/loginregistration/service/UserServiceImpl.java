@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserEntity update(UserEntity employee) {
+	public UserEntity update(UserEntity employee) throws UserException{
 		
 //		UserEntity existingUser = this.userDao.findById(employee.getEmployeeId()).get();
 //		existingUser.setName(employee.getName());
