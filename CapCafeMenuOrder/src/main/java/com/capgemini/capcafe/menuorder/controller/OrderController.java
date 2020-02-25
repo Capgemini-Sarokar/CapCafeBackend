@@ -19,23 +19,23 @@ import com.capgemini.capcafe.menuorder.service.OrderService;
 @RestController
 @RequestMapping(path = "/order")
 public class OrderController {
-	
-@Autowired
-OrderService orderService;
 
-@PostMapping(path="/addOrder")
-public void addOrder(@RequestBody Ordering order) {
-	this.orderService.addOrder(order);
-}
+	@Autowired
+	OrderService orderService;
 
-@GetMapping(path="/getOrderByFoodName/{orderId}")
-public Ordering fetchOrderByFood(@PathVariable("orderId") int orderId) throws OrderException {
-	return this.orderService.fetchOrderById(orderId);	
-}
+	@PostMapping(path = "/addOrder")
+	public void addOrder(@RequestBody Ordering order) {
+		this.orderService.addOrder(order);
+	}
 
-@GetMapping(path="/getAllOrder")
-public List<Ordering> findAllOrders(){
-	return this.orderService.fetchOrder();
-}
+	@GetMapping(path = "/getOrderByFoodName/{orderId}")
+	public Ordering fetchOrderByFood(@PathVariable("orderId") int orderId) throws OrderException {
+		return this.orderService.fetchOrderById(orderId);
+	}
+
+	@GetMapping(path = "/getAllOrder")
+	public List<Ordering> findAllOrders() {
+		return this.orderService.fetchOrder();
+	}
 
 }
